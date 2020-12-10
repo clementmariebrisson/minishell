@@ -1,5 +1,5 @@
 #include "header.h"
-#include <dirent.h>
+
 int ls( char *argumentsList[] )
 {
   int status;
@@ -7,19 +7,15 @@ int ls( char *argumentsList[] )
   argv[0]="ls";
   argv[1]= NULL;
 
-  int i=0;
-  int n;
+
   if( fork() == 0 ){
+    int diff_strcmp=20;
 
-    struct dirent **namelist;
-    n=scandir(".",&namelist,NULL,alphasort);
-
-    while( n ){
-      n--;
-      printf("%s\t", namelist[n]->d_name);
-      free(namelist[n]);
-    }
-    printf("\n" );
+    //Lorsque cette partie est décommentée, il faut mettre un espace devant ls pour que le pgm fonctionne
+    /*if ( ( strcmp(argumentsList[1],"-a")==0 ) || (strcmp(argumentsList[1],"--all") )==0 ) {
+      diff_strcmp=0;
+    }*/
+    argsLs(argumentsList, diff_strcmp);
   }
   else
     wait( &status );
@@ -27,19 +23,32 @@ int ls( char *argumentsList[] )
   return 0;
 }
 
-/*
-int ls( char *argumentsList[] )
+int argsLs ( char *argumentsList[], int diff_strcmp )
 {
-  int status;
-  char *argv[2];
-  argv[0]="ls";
-  argv[1]= NULL;
+  int n;
+  struct dirent **namelist;
+  n=scandir(".",&namelist,NULL,alphasort);
+  char *fileName;
 
-  if( fork() == 0 )
-    execvp(argv[0], argv);
-  else
-    wait( &status );
+  while( n ){
+    n--;
+    fileName =namelist[n]->d_name;
 
+    char c = firstCharacter(fileName);
+    char *pFileName = &c;
+    if( (strcmp(pFileName,".") >= diff_strcmp) ){
+      printf("%s\t", namelist[n]->d_name);
+    }
+    free(namelist[n]);
+  }
+  printf("\n" );
   return 0;
 }
-*/
+char firstCharacter(char * fileName)
+{
+  char name[30]={0};
+  for(int i=0; i<30; i++){
+    name[i]=*(fileName+i);
+  }
+  return name[0];
+}

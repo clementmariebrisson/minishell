@@ -48,6 +48,9 @@ int main(int argc, char *argv[]) {
     else if( strcmp(whichCommand[0],"echo")==0 ){
       echo(argumentsList);
     }
+    else if( strcmp(whichCommand[0],"pwd")==0 ){
+      pwd(argumentsList);
+    }
     else
     {
       printf("Command not found\n" );
