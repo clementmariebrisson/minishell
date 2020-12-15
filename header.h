@@ -17,3 +17,5 @@ int cd( char *argumentsList[] );
 int echo( char *argumentsList[] );
 
 int pwd( char *argv[] );
+
+int env( char *argv[] );

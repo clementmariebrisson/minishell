@@ -51,6 +51,9 @@ int main(int argc, char *argv[]) {
     else if( strcmp(whichCommand[0],"pwd")==0 ){
       pwd(argumentsList);
     }
+    else if( strcmp(whichCommand[0],"env")==0 ){
+      env(argumentsList);
+    }
     else
     {
       printf("Command not found\n" );

@@ -1,1 +1,1 @@
-atom header.h shell.c echo.c cd.c ls.c cat.c pwd.c rm.c touch.c
+atom header.h shell.c echo.c cd.c ls.c cat.c pwd.c rm.c touch.c env.c
