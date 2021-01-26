@@ -10,20 +10,24 @@ int cat( char *argv[] )
   args[2]=0;
 
   if( fork() == 0 ){
-    execvp(argv[0], argv);
+    //execvp(argv[0], argv);
     //Open:
     int fd;
     fd = open(argv[1], O_RDWR|O_CREAT,0666);
     //Read:
-    char buf[1024];
+    char buf[4096]={0};
     int r;
-    r = read(fd, buf, 1024);
+    r = read(fd, buf, 4096);
     //Conversion ASCII :
     int caractere;
+    char carac;
     for( int i=0; i<strlen(buf); i++){
-      caractere = toAtoi(buf[i]);
-      write(1, caractere, strlen(caractere) );
+      //caractere = toAtoi(buf[i]);
+      carac = buf[i];
+      write(1, &carac, strlen(&carac) );
+      //printf("%c", carac);
     }
+    printf("\n");
   }
   else
     wait( &status );
