@@ -57,6 +57,9 @@ int main(int argc, char *argv[]) {
     else if( strcmp(whichCommand[0],"cat")==0 ){
       cat(argumentsList);
     }
+    else if( strcmp(whichCommand[0],"rm")==0 ){
+      rm(argumentsList);
+    }
     else
     {
       printf("Command not found\n" );
