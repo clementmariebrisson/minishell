@@ -7,6 +7,10 @@
 #include <unistd.h>
 #include <dirent.h> //Pour ls.c
 
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
 void lireCaractere();
 
 int ls( char *argumentsList[] );
@@ -19,3 +23,6 @@ int echo( char *argumentsList[] );
 int pwd( char *argv[] );
 
 int env( char *argv[] );
+
+int toAtoi( char carac );
+int cat( char *argv[] );
