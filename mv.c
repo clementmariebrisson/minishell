@@ -6,7 +6,6 @@ int mv( char *argv[] )
   int status;
 
   if ( fork() == 0 ){
-      //execvp(argv[0], argv); // child: call execv with the path and the args
       if ( argv[2] == NULL ) {
         printf( "Usage: sample oldname newname...\n" );
         exit( 0 );
