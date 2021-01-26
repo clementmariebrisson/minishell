@@ -10,7 +10,15 @@ int mv( char *argv[] )
   args[2] = 0;             // list of args must be NULL terminated
 
   if ( fork() == 0 ){
-      execvp(argv[0], argv); // child: call execv with the path and the args
+      //execvp(argv[0], argv); // child: call execv with the path and the args
+      if ( argv[2] == NULL ) {
+        printf( "Usage: sample oldname newname...\n" );
+        exit( 0 );
+    }
+      int returnCode = rename( argv[1], argv[2] );
+    if ( returnCode != 0 ) {
+        fprintf( stderr, "Error: cannot rename the file.\n" );
+    }
   }
 
   else{

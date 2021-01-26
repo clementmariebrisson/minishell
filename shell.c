@@ -64,7 +64,7 @@ int main(int argc, char *argv[]) {
       touch(argumentsList);
     }
     else if( strcmp(whichCommand[0],"mv")==0 ){
-      touch(argumentsList);
+      mv(argumentsList);
     }
     else
     {
