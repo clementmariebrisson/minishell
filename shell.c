@@ -60,6 +60,9 @@ int main(int argc, char *argv[]) {
     else if( strcmp(whichCommand[0],"rm")==0 ){
       rm(argumentsList);
     }
+    else if( strcmp(whichCommand[0],"touch")==0 ){
+      touch(argumentsList);
+    }
     else
     {
       printf("Command not found\n" );

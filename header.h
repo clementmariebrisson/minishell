@@ -28,3 +28,5 @@ int toAtoi( char carac );
 int cat( char *argv[] );
 
 int rm( char *argv[] );
+
+int touch( char *argv[] );
