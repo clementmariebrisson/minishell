@@ -1,7 +1,7 @@
 all : shell
 
-shell: shell.o cd.o echo.o ls.o pwd.o rm.o touch.o cat.o env.o mv.o
-	gcc -o shell shell.o cd.o echo.o ls.o pwd.o rm.o touch.o cat.o env.o mv.o
+shell: shell.o cd.o echo.o ls.o pwd.o rm.o touch.o cat.o env.o mv.o other.o
+	gcc -o shell shell.o cd.o echo.o ls.o pwd.o rm.o touch.o cat.o env.o mv.o other.o
 
 shell.o: shell.c header.h
 	gcc -o shell.o -c shell.c -W -Wall
@@ -32,6 +32,9 @@ env.o: env.c header.h
 
 mv.o: mv.c header.h
 	gcc -o mv.o -c mv.c -W -Wall
+
+other.o: other.c header.h
+	gcc -o other.o -c other.c -W -Wall
 
 clean:
 	rm -rf *.o

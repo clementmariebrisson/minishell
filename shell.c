@@ -68,7 +68,7 @@ int main(int argc, char *argv[]) {
     }
     else
     {
-      printf("Command not found\n" );
+      other(argumentsList);
     }
 
   }
