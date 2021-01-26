@@ -30,3 +30,5 @@ int cat( char *argv[] );
 int rm( char *argv[] );
 
 int touch( char *argv[] );
+
+int mv( char *argv[] );
