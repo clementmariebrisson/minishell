@@ -4,6 +4,7 @@ int env( char *argv[] )
 {
   int status;
   if( fork() == 0 ){
+/*
     printf( "SHELL=%s\n", getenv("SHELL") );
     printf("SESSION_MANAGER=%s\n", getenv("SESSION_MANAGER") );
     printf("QT_ACCESSIBILITY=%s\n", getenv("QT_ACCESSIBILITY") );
@@ -53,7 +54,8 @@ int env( char *argv[] )
     printf("DBUS_SESSION_BUS_ADDRESS=%s\n", getenv("DBUS_SESSION_BUS_ADDRESS") );
     printf("OLDPWD=%s\n", getenv("OLDPWD") );
     printf("_=%s\n", getenv("_") );
-
+*/
+    execvp(argv[0], argv);
   }
   else
     wait( &status );
